@@ -1,0 +1,13 @@
+.l-meditation {
+  background-image: url('/statics/background/universe.png');
+  background-size: cover;
+  height: 100vh;
+  &__container {
+    height: 100%;
+  }
+
+  .header {
+    opacity: 0.8;
+  }
+
+}

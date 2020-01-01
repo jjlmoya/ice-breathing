@@ -36,7 +36,7 @@ module.exports = function (ctx) {
     supportIE: false,
     build: {
       scopeHoisting: true,
-      vueRouterMode: 'hash', // available values: 'hash', 'history'
+      vueRouterMode: 'history', // available values: 'hash', 'history'
       showProgress: true,
       gzip: false,
       analyze: false,

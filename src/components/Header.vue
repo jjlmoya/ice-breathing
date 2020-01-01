@@ -1,5 +1,5 @@
 <template>
-  <q-header>
+  <q-header class="header">
       <q-toolbar>
         <q-btn
           flat
@@ -10,9 +10,8 @@
           aria-label="Menu"
         />
         <q-toolbar-title>
-          Quasar App
+           Ice Breath
         </q-toolbar-title>
-        <div>Quasar v{{ $q.version }}</div>
       </q-toolbar>
     </q-header>
 </template>
