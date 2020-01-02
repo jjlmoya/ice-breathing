@@ -1,5 +1,13 @@
-@import 'layout/meditation';
+@import 'quasar.variables';
 
+@import 'layout/meditation';
 
 @import 'models/meditation';
 @import 'models/ground';
+
+@import 'pages/index';
+@import 'components/button';
+
+body {
+  background-color: black;
+}
