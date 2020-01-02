@@ -13,10 +13,17 @@ body {
 }
 
 .progress {
-  display: flex;
-  justify-content: center;
-  margin: 30px auto;
-  position: relative;
+  width: 100%;
+  text-align: center;
+  font-size: 26px;
+  color: white;
+  padding: 20px;
+  &__wrapper {
+    display: flex;
+    justify-content: center;
+    margin: 30px auto;
+    position: relative;
+  }
   &__content {
     display: flex;
     justify-content: center;
