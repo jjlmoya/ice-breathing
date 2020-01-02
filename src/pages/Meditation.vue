@@ -1,5 +1,6 @@
 <template>
   <div class="p-meditation">
+    <Progress />
     <Ground />
     <Meditation />
   </div>
@@ -8,11 +9,14 @@
 <script>
 import Ground from 'components/Ground.vue'
 import Meditation from 'components/Meditation.vue'
+import Progress from 'components/Progress.vue'
+
 export default {
   name: 'MyLayout',
   components: {
     Ground,
-    Meditation
+    Meditation,
+    Progress
   },
 
   data () {
@@ -22,7 +26,6 @@ export default {
   },
   methods: {
     setMenuStatus (status) {
-      console.log('statuts %o', status)
       this.leftDrawerOpen = status
     }
   }
