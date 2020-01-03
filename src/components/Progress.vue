@@ -17,13 +17,17 @@
 </template>
 
 <script>
+
+const breathIn = new Audio('statics/sounds/breath-in.mp3')
+const breathOut = new Audio('statics/sounds/breath-out.mp3')
+
 export default {
   name: 'Header',
   data: function () {
     return {
       state: 0,
       value: 0,
-      breathNumber: 40,
+      breathNumber: 3,
       holdTime: 120,
       refreshTime: 15,
       max: 0,
@@ -48,11 +52,19 @@ export default {
       this.createLoop(this.holdTime, 100)
     },
     breathLoop () {
-      this.createLoop(this.breathNumber, 200)
+      const breathInDuration = 2.377
+      const breathOutDuration = 2.037
+      const durationSounds = (breathInDuration + breathOutDuration) * 1000
       this.round++
+      this.createLoop(this.breathNumber, durationSounds, () => {
+        breathIn.play()
+        setTimeout(() => {
+          breathOut.play()
+        }, breathInDuration * 1000)
+      })
     },
     refreshLoop () {
-      this.createLoop(this.refreshTime, 100)
+      this.createLoop(this.refreshTime, 1000)
     },
     nextLoop () {
       switch (this.state) {
@@ -67,8 +79,8 @@ export default {
           break
       }
     },
-    createLoop (max, step) {
-      console.log(max)
+    createLoop (max, step, callback) {
+      if (callback) { callback() }
       let loop = setInterval(() => {
         this.value++
         if (this.value >= max) {
@@ -76,6 +88,8 @@ export default {
           this.state = this.state !== 2 ? this.state + 1 : 0
           this.value = 0
           this.nextLoop()
+        } else {
+          if (callback) callback()
         }
       }, step)
     }
