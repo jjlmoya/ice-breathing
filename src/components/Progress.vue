@@ -11,11 +11,11 @@
         center-color="purple"
         track-color="white"
       />
+      <div class="progress__action"> {{action}} </div>
       <div class="progress__content">{{value}}</div>
     </div>
   </div>
 </template>
-
 <script>
 
 const breathIn = new Audio('statics/sounds/breath-in.mp3')
@@ -29,6 +29,7 @@ export default {
       value: 0,
       breathNumber: 3,
       holdTime: 120,
+      action: '',
       refreshTime: 15,
       max: 0,
       round: 0
@@ -49,6 +50,7 @@ export default {
       return this.value * 100 / this.getTimeByState()
     },
     holdLoop () {
+      this.action = 'Hold'
       this.createLoop(this.holdTime, 100)
     },
     breathLoop () {
@@ -58,12 +60,15 @@ export default {
       this.round++
       this.createLoop(this.breathNumber, durationSounds, () => {
         breathIn.play()
+        this.action = 'In'
         setTimeout(() => {
+          this.action = 'Out'
           breathOut.play()
         }, breathInDuration * 1000)
       })
     },
     refreshLoop () {
+      this.action = 'In and Hold!'
       this.createLoop(this.refreshTime, 1000)
     },
     nextLoop () {
