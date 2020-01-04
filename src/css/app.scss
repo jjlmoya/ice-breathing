@@ -7,30 +7,9 @@
 
 @import 'pages/index';
 @import 'components/button';
+@import 'components/progress';
 
 body {
   background-color: black;
 }
 
-.progress {
-  width: 100%;
-  text-align: center;
-  font-size: 26px;
-  color: white;
-  padding: 20px;
-  &__wrapper {
-    display: flex;
-    justify-content: center;
-    margin: 30px auto;
-    position: relative;
-  }
-  &__content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    font-size: 42px;
-    height: 100%;
-    color: white;
-  }
-}
