@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "Helper meditation Tool",
   "productName": "Ice Breathing",
-  "cordovaId": "ice-breathing",
+  "cordovaId": "ice.breathing",
   "capacitorId": "",
   "author": "jjlmoya",
   "private": true,
